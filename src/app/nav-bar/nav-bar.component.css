@@ -1,34 +1,45 @@
-/* In your component SCSS */
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  display: flex;
-  flex: 1;
+.sidenav-container {
+  height: 100vh; 
 }
 
 .sidenav {
-  width: 250px;
-  flex-shrink: 0;
-  background: #f5f5f5;
+  width: 250px; 
 }
 
-.content {
+.sidenav .mat-toolbar {
+  background: inherit;
+  color: white;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid white;
+}
+
+
+.spacer {
   flex: 1;
-  padding: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
 
+.content-container {
+  padding: 20px;
+  min-height: calc(100vh - 64px); 
+}
+
+
+@media (max-width: 599px) {
   .sidenav {
-    width: 100%;
-    height: auto;
+    width: 85vw; 
   }
 }

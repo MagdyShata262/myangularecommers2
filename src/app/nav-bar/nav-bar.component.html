@@ -15,6 +15,7 @@
         *ngFor="let link of navLinks"
         [routerLink]="link.path"
         routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
       >
         <mat-icon matListItemIcon>{{ link.icon }}</mat-icon>
         <span matListItemTitle>{{ link.label }}</span>

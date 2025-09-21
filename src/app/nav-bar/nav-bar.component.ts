@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
-import { RouterLink, RouterLinkWithHref } from '@angular/router';
+import { RouterLink, RouterLinkWithHref, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -18,7 +18,7 @@ import { RouterLink, RouterLinkWithHref } from '@angular/router';
   imports: [
     CommonModule,
     RouterLink,
-    
+    RouterModule,
     RouterLinkWithHref,
     MatToolbarModule,
     MatButtonModule,
