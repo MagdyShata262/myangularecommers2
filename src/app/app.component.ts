@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from 'home';
+import { NavBarComponent } from "./nav-bar/nav-bar.component";
 
 @Component({
   standalone: true,
@@ -14,7 +15,8 @@ import { HomeComponent } from 'home';
     CommonModule,
     HomeComponent,
     MatButtonModule,
-  ],
+    NavBarComponent
+],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
