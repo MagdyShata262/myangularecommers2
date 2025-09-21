@@ -1,4 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
+  <!-- SIDENAV (Drawer) -->
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -7,15 +8,24 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>🛍️ Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a
+        mat-list-item
+        *ngFor="let link of navLinks"
+        [routerLink]="link.path"
+        routerLinkActive="active-link"
+      >
+        <mat-icon matListItemIcon>{{ link.icon }}</mat-icon>
+        <span matListItemTitle>{{ link.label }}</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
+
+  <!-- MAIN CONTENT -->
   <mat-sidenav-content>
     <mat-toolbar color="primary">
+      <!-- Hamburger menu for mobile -->
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -25,8 +35,25 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>myangularecommers2</span>
+
+      <!-- App Title / Logo -->
+      <span>MyAngularECommers2</span>
+
+      <!-- Spacer -->
+      <span class="spacer"></span>
+
+      <!-- Auth / Cart Icons (Right-aligned) -->
+      <button mat-icon-button [routerLink]="'/cart'">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button [routerLink]="'/profile'">
+        <mat-icon>account_circle</mat-icon>
+      </button>
     </mat-toolbar>
-    <!-- Add Content Here -->
+
+    <!-- Page Content (via router) -->
+    <div class="content-container">
+      <ng-content></ng-content>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
